@@ -10,6 +10,7 @@ public class ThreadLocalTest {
 
         t1.start();
         t2.start();
+
     }
 
     public static String threadSafeFormat(Date date){
