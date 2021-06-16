@@ -1,7 +1,8 @@
 package com.manning.readinglist;
 
+import com.manning.readinglist.entity.Book;
+import com.manning.readinglist.repo.ReadingListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcOperations;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,7 +24,7 @@ public class ReadingListController {
 
     @RequestMapping(value = "/{reader}", method = RequestMethod.GET)
     public String readersBooks(@PathVariable("reader") String reader, Model model) {
-            List<Book> readingList = readingListRepository.findByReader(reader);
+        List<Book> readingList = readingListRepository.findByReader(reader);
         if (readingList != null) {
             model.addAttribute("books", readingList);
         }
